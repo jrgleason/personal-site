@@ -15,6 +15,7 @@ var markup = glob.sync([
   './src/**/*.pug'
 ]);
 var styles = glob.sync([
+  './src/**/*.less',
   './src/**/*.styl'
 ]);
 module.exports = {
@@ -38,7 +39,7 @@ module.exports = {
       { test: /\.pug$/, loader:"pug" },
       {
         test: /\.styl$/,
-        loader: 'css-loader!stylus-relative-loader'
+        loader: 'style-loader!css-loader!stylus-loader'
       },
       {
         test: /\.less$/,
