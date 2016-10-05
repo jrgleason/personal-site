@@ -8,6 +8,7 @@ function root(args) {
   return path.join.apply(path, [_root].concat(args));
 }
 var scripts = glob.sync([
+  './src/**/*.ts',
   './src/**/*.js'
 ]);
 var markup = glob.sync([
@@ -21,13 +22,13 @@ var styles = glob.sync([
 module.exports = {
   context: __dirname, 
   entry: {
-    polyfills: './polyfills.js',
-    vendor: './deps.js',
+    polyfills: './scripts/polyfills.ts',
+    vendor: './scripts/deps.ts',
     app: scripts.concat(markup),
     styles: styles
   },
   resolve: {
-    extensions: ['']
+    extensions: ['', '.js', '.ts', '.pug']
   },
   output: {
     filename: "[name].js",
@@ -35,6 +36,7 @@ module.exports = {
   },
   module: {
     loaders: [
+      { test: /\.ts$/, loader: 'ts' },
       { test: /\.html$/, loader: "html" },
       { test: /\.pug$/, loader:"pug" },
       {
@@ -51,6 +53,7 @@ module.exports = {
       }
     ]
   },
+  devtool: '#inline-source-map',
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['styles', 'app', 'vendor', 'polyfills'],
