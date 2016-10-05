@@ -1,4 +1,5 @@
 FROM node:argon
+RUN npm install webpack typings tsc -g
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
