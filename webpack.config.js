@@ -39,7 +39,7 @@ module.exports = {
       { test: /\.ts$/, loader: 'ts' },
       { test: /\.html$/, loader: "html" },
       { test: /\.css$/, loader: "style-loader!css-loader" },
-      { test: /\.pug$/, loader:"pug" },
+      { test: /\.pug$/, loader:"pug-html-loader" },
       {
         test: /\.styl$/,
         loader: 'style-loader!css-loader!stylus-loader'
