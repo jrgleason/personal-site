@@ -28,7 +28,7 @@ module.exports = {
     styles: styles
   },
   resolve: {
-    extensions: ['', '.js', '.ts', '.pug']
+    extensions: ['', '.js', '.ts', '.pug', '.css', '.html']
   },
   output: {
     filename: "[name].js",
@@ -38,6 +38,7 @@ module.exports = {
     loaders: [
       { test: /\.ts$/, loader: 'ts' },
       { test: /\.html$/, loader: "html" },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
       { test: /\.pug$/, loader:"pug" },
       {
         test: /\.styl$/,

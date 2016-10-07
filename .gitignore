@@ -38,3 +38,5 @@ jspm_packages
 public/javascripts/*.js
 public/stylesheets/*.css
 typings
+.idea
+personal-site.iml
