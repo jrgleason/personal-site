@@ -41,6 +41,8 @@
     "less-loader": "^2.2.3",
     "pug": "^2.0.0-beta6",
     "pug-html-loader": "^1.0.8",
+    "raw": "^0.1.4",
+    "raw-loader": "^0.5.1",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
