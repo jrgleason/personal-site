@@ -17,7 +17,8 @@ var markup = glob.sync([
 ]);
 var styles = glob.sync([
   './src/styles/**/*.less',
-  './src/styles/**/*.styl'
+  './src/styles/**/*.styl',
+  './src/styles/**/*.css'
 ]);
 module.exports = {
   context: __dirname, 
