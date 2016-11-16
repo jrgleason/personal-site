@@ -1,6 +1,6 @@
 import { ElementRef, Component, AfterViewInit } from '@angular/core';
 @Component({
-  selector: 'my-app',
+  selector: 'jg-terminal',
   template: require('./terminal.template'),
   styles: [require('./terminal.styles')],
 })
