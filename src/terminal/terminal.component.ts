@@ -1,8 +1,8 @@
 import { ElementRef, Component, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'my-app',
-  template: String(require('./terminal.template')),
-  styles: [require('!raw!stylus-loader!./terminal.styles.styl')],
+  template: require('./terminal.template'),
+  styles: [require('./terminal.styles')],
 })
 export class TerminalComponent implements AfterViewInit{
   constructor(public el:ElementRef){}
