@@ -55,7 +55,6 @@
     "typescript": "^2.0.9",
     "typings": "^2.0.0",
     "webpack": "^1.13.3",
-    "webpack-merge": "^0.16.0",
-    "zone.js": "^0.6.26"
+    "webpack-merge": "^0.16.0"
   }
 }
