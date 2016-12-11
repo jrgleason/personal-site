@@ -6,6 +6,7 @@ import {JGleasonRoutingModule} from "./jgleason-routing.module";
 import {HomeComponent} from "./home/home.component";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {HeaderComponent} from "./layout/header/header.component";
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {HeaderComponent} from "./layout/header/header.component";
   bootstrap:    [ ViewportComponent ],
   imports:      [
       BrowserModule,
+      NgbModule.forRoot(),
       JGleasonRoutingModule
   ],
   providers: [
