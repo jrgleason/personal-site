@@ -7,10 +7,14 @@ import {HomeComponent} from "./home/home.component";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {HeaderComponent} from "./layout/header/header.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {LoginComponent} from "./authentication/login/login.component";
+import {HttpModule} from "@angular/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
       TerminalComponent,
+      LoginComponent,
       ViewportComponent,
       HomeComponent,
       HeaderComponent
@@ -18,11 +22,14 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
   bootstrap:    [ ViewportComponent ],
   imports:      [
       BrowserModule,
+      HttpModule,
+      FormsModule,
       NgbModule.forRoot(),
       JGleasonRoutingModule
   ],
   providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy},
+      {provide: LocationStrategy, useClass: HashLocationStrategy},
+
   ]
 })
 export class JGleasonModule { }

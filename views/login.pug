@@ -1,4 +1,19 @@
-form(method='post')
-  input#username.form-control(type='text', name='username', placeholder='Username', autofocus)
-  input#password.form-control(type='password', name='password', placeholder='Password')
-  button.btn.btn-primary(type='submit') Login
+.login
+  form.layout-column
+    .username
+      label(for="username") Username
+      input#username.form-control(
+        type='text',
+        name='username',
+        placeholder='Username',
+        [(ngModel)]="model.username"
+        autofocus)
+    .password
+      label(for="password") Password
+      input#password.form-control(
+        type='password',
+        name='password',
+        [(ngModel)]="model.password"
+        placeholder='Password')
+    .footer
+      button.btn.btn-primary(type='submit') Login
