@@ -11,7 +11,8 @@ const JGleasonRoutes = [
         path: "",
         component: HeaderComponent,
         outlet: "header",
-    },{
+    },
+    {
         path: "terminal",
         component: TerminalComponent,
         canActivate: [CanActivateIfLoggedIn],
@@ -24,17 +25,17 @@ const JGleasonRoutes = [
         path: "login",
         component: LoginComponent,
 
-    }
+    },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(JGleasonRoutes)],
     exports: [
-        RouterModule
+        RouterModule,
     ],
     providers: [
         CanActivateIfLoggedIn,
-        LoginService
-    ]
+        LoginService,
+    ],
 })
-export class JGleasonRoutingModule{ }
+export class JGleasonRoutingModule {}
 

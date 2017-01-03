@@ -1,6 +1,6 @@
-import { NgModule }      from '@angular/core';
-import { TerminalComponent }   from './terminal/terminal.component';
-import { BrowserModule } from '@angular/platform-browser';
+import { NgModule }      from "@angular/core";
+import { TerminalComponent }   from "./terminal/terminal.component";
+import { BrowserModule } from "@angular/platform-browser";
 import {ViewportComponent} from "./viewport/viewport.component";
 import {JGleasonRoutingModule} from "./jgleason-routing.module";
 import {HomeComponent} from "./home/home.component";
@@ -11,13 +11,13 @@ import {LoginComponent} from "./authentication/login/login.component";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 
-@NgModule({
+@NgModule( {
   declarations: [
       TerminalComponent,
       LoginComponent,
       ViewportComponent,
       HomeComponent,
-      HeaderComponent
+      HeaderComponent,
   ],
   bootstrap:    [ ViewportComponent ],
   imports:      [
@@ -25,12 +25,11 @@ import {FormsModule} from "@angular/forms";
       HttpModule,
       FormsModule,
       NgbModule.forRoot(),
-      JGleasonRoutingModule
+      JGleasonRoutingModule,
   ],
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},
-
-  ]
+  ],
 })
 export class JGleasonModule { }
 

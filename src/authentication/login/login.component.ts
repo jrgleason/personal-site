@@ -4,11 +4,11 @@ import {LoginService} from "../authentication.service";
 @Component({
     selector: "jg-login",
     template: require("./login.template"),
-    styles: [require("./login.styles")]
+    styles: [require("./login.styles")],
 })
-export class LoginComponent{
-    constructor(private loginService: LoginService){ }
-    model = new Credentials("","");
+export class LoginComponent {
+    model = new Credentials("", "");
+    constructor(private loginService: LoginService) {}
     onSubmit(event) {
         event.preventDefault();
         this.loginService.login(this.model.username, this.model.password);

@@ -9,7 +9,7 @@ import "rxjs";
 
 // Additional
 import "hammerjs";
-window['$'] = window['jQuery'] = require('jquery');
-require('jquery.terminal/js/jquery.terminal');
-require('jquery.terminal/js/jquery.mousewheel-min');
-require('jquery.terminal/css/jquery.terminal');
+window["$"] = window["jQuery"] = require("jquery");
+require("jquery.terminal/js/jquery.terminal");
+require("jquery.terminal/js/jquery.mousewheel-min");
+require("jquery.terminal/css/jquery.terminal");
