@@ -8,6 +8,7 @@ var bodyParser = require('body-parser'),
     LdapStrategy = require('passport-ldapauth');
 var OPTS = {
   server: {
+    // Example ldap://localhost:10389
     url: process.env.LDAP_URL,
     bindDn: 'uid=admin,ou=system',
     bindCredentials: process.env.LDAP_SECRET,
