@@ -25,7 +25,10 @@ module.exports = function(options){
     },
     module: {
       loaders: [
-        {test: /\.pug$/, loader: "pug-html-loader"},
+        {
+          test: /\.pug$/,
+          loaders: ["apply", "pug"]
+        },
         {test: /\.ts$/, loader: 'ts-loader'},
         // First case: someFiles.styl ending with .style
         {
