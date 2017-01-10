@@ -10,6 +10,7 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {LoginComponent} from "./authentication/login/login.component";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
+import {CollapseDirective, CollapseAreaDirective} from "./collapse/collapse.directive";
 
 @NgModule( {
   declarations: [
@@ -18,6 +19,8 @@ import {FormsModule} from "@angular/forms";
       ViewportComponent,
       HomeComponent,
       HeaderComponent,
+      CollapseDirective,
+      CollapseAreaDirective,
   ],
   bootstrap:    [ ViewportComponent ],
   imports:      [
