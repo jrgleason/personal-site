@@ -11,6 +11,8 @@ import {LoginComponent} from "./authentication/login/login.component";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {CollapseDirective, CollapseAreaDirective} from "./collapse/collapse.directive";
+import {MaterialRootModule} from "@angular/material";
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 @NgModule( {
   declarations: [
@@ -24,6 +26,8 @@ import {CollapseDirective, CollapseAreaDirective} from "./collapse/collapse.dire
   ],
   bootstrap:    [ ViewportComponent ],
   imports:      [
+      FlexLayoutModule,
+      MaterialRootModule,
       BrowserModule,
       HttpModule,
       FormsModule,
