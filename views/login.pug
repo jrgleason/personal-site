@@ -1,19 +1,10 @@
-.login
-  form.layout-column
-    .username
-      label(for="username") Username
-      input#username.form-control(
-        type='text',
-        name='username',
-        placeholder='Username',
-        [(ngModel)]="model.username"
-        autofocus)
-    .password
-      label(for="password") Password
-      input#password.form-control(
-        type='password',
-        name='password',
-        [(ngModel)]="model.password"
-        placeholder='Password')
-    .footer
-      button.btn.btn-primary(type='submit') Login
+form(action='/login', method='post')
+  div
+    label Username:
+    input(type='text', name='username')
+    br
+  div
+    label Password:
+    input(type='password', name='password')
+  div
+    input(type='submit', value='Submit')

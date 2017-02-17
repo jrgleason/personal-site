@@ -56,10 +56,5 @@ module.exports = function(options){
         }
       ]
     },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: 'src/index.html'
-      })
-    ]
   }
 };

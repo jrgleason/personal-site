@@ -7,7 +7,7 @@ export class CanActivateIfLoggedIn implements CanActivate {
     canActivate(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot,
-    ): boolean {
-        return this.logService.loggedIn;
+    ) {
+        return this.logService.loggedIn
     }
 }

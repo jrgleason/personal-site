@@ -4,20 +4,27 @@ var passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res ) {
+  console.log("Inside core");
   res.render('index', { title: 'Express' });
 });
 router.get('/login', function(req, res ){
   res.render("login");
 });
-router.get('/success', passport.authenticate('ldapauth', { failureRedirect: '/login' }), function(req, res){
+router.get('/success', require('connect-ensure-login').ensureLoggedIn(), function(req, res){
   res.render("success");
 });
-router.post('/login', function(req, res, next){
-  passport.authenticate('ldapauth', { }, function(err, user, info) {
-    if (err) { return next(err); }
+router.get('/logout',
+  function(req, res){
+    req.logout();
+    res.redirect('/');
+  });
+router.post('/login', passport.authenticate('ldapauth', {failureRedirect: '/#/login' }), function(req, res){
+  res.redirect("/");
+});
+router.get('/user', function(req, res){
     res.setHeader('Content-Type', 'application/json');
     console.log(JSON.stringify(req.session));
-    if (!user) {
+    if (!req.user) {
       res.send(JSON.stringify({
         "auth": false,
       }));
@@ -25,10 +32,9 @@ router.post('/login', function(req, res, next){
     else{
       res.send(JSON.stringify({
         "auth": true,
-        "user": user,
+        "user": req.user,
       }));
     }
-  })(req, res, next);
 });
 
 module.exports = router;

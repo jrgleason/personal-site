@@ -11,6 +11,6 @@ export class LoginComponent {
     constructor(private loginService: LoginService) {}
     onSubmit(event) {
         event.preventDefault();
-        this.loginService.login(this.model.username, this.model.password);
+        // this.loginService.;
     }
 }

@@ -1,11 +1,8 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser'),
-    passport     = require('passport'),
+var passport     = require('passport'),
     LdapStrategy = require('passport-ldapauth');
+
 var OPTS = {
   server: {
     // Example ldap://localhost:10389
@@ -17,27 +14,7 @@ var OPTS = {
   }
 };
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-
-var app = express();
-
-var expressSession = require('express-session');
-app.use(expressSession({secret: 'mySecretKey'}));
-
 passport.use(new LdapStrategy(OPTS));
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(passport.initialize());
-app.use(passport.session());
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -45,9 +22,33 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(user, done) {
   done(null, user);
 });
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
+var app = express();
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
+
+app.use(require('express-session')({secret: 'mySecretKey'}));
+passport.use(new LdapStrategy(OPTS));
+
+
+// uncomment after placing your favicon in /public
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(logger('dev'));
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(passport.initialize());
+// app.use(passport.session());
+// app.use(cookieParser());
+app.use(require('morgan')('combined'));
+app.use(require('cookie-parser')());
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+var routes = require('./routes/index');
+var users = require('./routes/users');
+app.use('/javascripts', express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
@@ -81,6 +82,4 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
-module.exports = app;
+app.listen(3000);
