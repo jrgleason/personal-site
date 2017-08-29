@@ -8,14 +8,14 @@ module.exports = function () {
       preLoaders: [
         {
           test: /\.ts$/,
-          loader: "tslint"
+          loader: "tslint-loader"
         }
       ],
       postLoaders: [
         {
           test: /^((?!\.spec\.ts).)*.ts$/,
           exclude: /(node_modules|bower_components)/,
-          loader: 'istanbul-instrumenter'
+          loader: 'istanbul-instrumenter-loader'
         }
       ]
     },
