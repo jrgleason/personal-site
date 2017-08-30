@@ -11,8 +11,8 @@ import {LoginComponent} from "./authentication/login/login.component";
 import {HttpModule} from "@angular/http";
 import {FormsModule} from "@angular/forms";
 import {CollapseDirective, CollapseAreaDirective} from "./collapse/collapse.directive";
-import {MaterialRootModule} from "@angular/material";
 import { FlexLayoutModule } from "@angular/flex-layout";
+import { MaterialModule } from "@angular/material";
 
 @NgModule( {
   declarations: [
@@ -27,16 +27,16 @@ import { FlexLayoutModule } from "@angular/flex-layout";
   bootstrap:    [ ViewportComponent ],
   imports:      [
       FlexLayoutModule,
-      MaterialRootModule,
       BrowserModule,
       HttpModule,
       FormsModule,
       NgbModule.forRoot(),
+      MaterialModule,
       JGleasonRoutingModule,
   ],
   providers: [
       {provide: LocationStrategy, useClass: HashLocationStrategy},
-  ],
+  ]
 })
 export class JGleasonModule { }
 
