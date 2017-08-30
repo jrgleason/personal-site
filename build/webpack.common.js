@@ -10,13 +10,11 @@ module.exports = function(options){
   return {
     context: helpers.root(''),
     entry: {
-      polyfills: './build/polyfills',
-      vendor: './build/deps',
       app: './src/main',
       styles: './src/styles/personal.global'
     },
     resolve: {
-      extensions: ['', '.js', '.ts', '.coffee', '.pug', '.styl', '.less', '.css', '.html'],
+      extensions: ['.js', '.ts', '.coffee', '.pug', '.styl', '.less', '.css', '.html'],
       modules: ['node_modules']
     },
     output: {
@@ -27,32 +25,32 @@ module.exports = function(options){
       loaders: [
         {
           test: /\.pug$/,
-          loaders: ["apply", "pug"]
+          loaders: ["apply-loader", "pug-loader"]
         },
         {test: /\.ts$/, loader: 'ts-loader'},
         // First case: someFiles.styl ending with .style
         {
           test: /.*[^\.global]\.styl$/,
-          loaders: ["to-string", "css", "stylus"]
+          loaders: ["to-string-loader", "css-loader", "stylus-loader"]
         },
         // Second case: someFiles.global.styl ending with .global.styl
         {
           test: /.*[\.global]\.styl$/,
-          loaders: ["style", "css", "stylus"]
+          loaders: ["style-loader", "css-loader", "stylus-loader"]
         },
         {
           test: /\.coffee$/,
-          loaders: ["coffee-loader", "coffee-import"]
+          loaders: ["coffee-loader", "coffee-import-loader"]
         },
-        {test: /\.html$/, loader: "html?interpolate=require&-minimize"},
+        {test: /\.html$/, loader: "html-loader?interpolate=require&-minimize"},
         {
           test: /\.css$/,
-          loaders: ["style", "css"]
+          loaders: ["style-loader", "css-loader"]
         },
         // I have to add the regex .*? because some of the files are named like... fontello.woff2?952370
         {
           test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?.*)?$/,
-          loader: 'url?limit=900000'
+          loader: 'url-loader?limit=900000'
         }
       ]
     },
