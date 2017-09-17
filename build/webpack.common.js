@@ -8,6 +8,7 @@ const config = {
     context: helpers.root(''),
     entry: {
       app: './src/main',
+      styles: './src/styles/personal.global'
     },
     resolve: {
       extensions: ['.js', '.ts', '.coffee', '.pug', '.styl', '.less', '.css', '.html'],
