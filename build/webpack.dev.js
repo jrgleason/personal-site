@@ -3,23 +3,16 @@ const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js'); // the settings that are common to prod and dev
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
 module.exports = function () {
-  return webpackMerge(commonConfig({env: ENV}), {
+  return webpackMerge(commonConfig, {
     module: {
-      preLoaders: [
+      rules: [
         {
           test: /\.ts$/,
+          enforce: "pre",
           loader: "tslint-loader"
         }
       ],
-      postLoaders: [
-        {
-          test: /^((?!\.spec\.ts).)*.ts$/,
-          exclude: /(node_modules|bower_components)/,
-          loader: 'istanbul-instrumenter-loader'
-        }
-      ]
     },
-    tslint: {},
     devtool: 'inline-source-map',
   })
 };
