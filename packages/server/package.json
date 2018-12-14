@@ -1,0 +1,14 @@
+{
+  "name": "@jrg/server",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN ../../LICENSE",
+  "dependencies": {
+    "lerna": "^3.6.0"
+  }
+}

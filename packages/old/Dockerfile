@@ -4,7 +4,7 @@ RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install
-COPY . /usr/src/app
+COPY ../.. /usr/src/app
 RUN typings install
 RUN webpack
 EXPOSE 3000 
