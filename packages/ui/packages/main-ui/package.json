@@ -1,0 +1,16 @@
+{
+  "name": "@jrg/main-ui",
+  "version": "0.0.9",
+  "description": "This is just for my personal use please don't copy",
+  "main": "dist/index.mjs",
+  "scripts": {
+    "test": "mocha",
+    "build": "rollup -c",
+    "publish:patch": "npm run build && npm publish && npm version patch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "latest"
+  }
+}

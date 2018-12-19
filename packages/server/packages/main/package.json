@@ -4,15 +4,22 @@
   "description": "",
   "main": "dist/index.mjs",
   "scripts": {
+    "start": "node --experimental-modules dist/index.mjs",
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "pug": "^2.0.3",
-    "rollup": "^0.67.4",
-    "stylus": "^0.54.5"
+    "body-parser": "latest",
+    "express": "latest",
+    "pug": "latest",
+    "rollup": "latest",
+    "stylus": "latest",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "dependencies": {
+    "@jrg/main-ui": "latest"
   }
 }

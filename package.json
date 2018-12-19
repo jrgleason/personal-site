@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "lerna run build",
+    "start": "cd packages/server/packages/main && npm start",
+    "bootstrap": "lerna bootstrap --hoist && lerna run bootstrap",
+    "clean": "lerna clean --yes && lerna run clean"
   },
   "repository": {
     "type": "git",
@@ -15,6 +19,6 @@
   },
   "homepage": "https://github.com/jrgleason/personal-site#readme",
   "dependencies": {
-    "lerna": "^3.6.0"
+    "lerna": "latest"
   }
 }
